@@ -7,6 +7,18 @@ class EscargotsDB {
     public $debug;
 
 
+    function RemoveSpecialChar($str) {
+      
+        // Using str_replace() function 
+        // to replace the word 
+        $res = str_replace( array( '\'', '"',
+        ',' , ';', '<', '>' ), ' ', $str);
+          
+        // Returning the result 
+        return $res;
+    }
+
+
     public function set($collection,$key,$payload) {
         $host = $this->host;
         $port = $this->port;
