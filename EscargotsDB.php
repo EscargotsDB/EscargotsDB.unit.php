@@ -57,7 +57,16 @@ class EscargotsDB {
         @$obj = json_decode($jsonData); 
         return $obj;
         
-    }    
+    }  
+    
+    public function del_data_list($listName,$collection,$key){
+        $host = $this->host;
+        $port = $this->port;
+        @$jsonData=file_get_contents("http://".$host.":".$port."/del_date/list?name=".$listName."&collection=".$collection."&key=".$key) or header('Location: erro_conex.php');
+        @$obj = json_decode($jsonData); 
+        return $obj;
+        
+    }       
 
 
     public function get_list($listName,$collection){
